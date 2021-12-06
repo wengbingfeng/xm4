@@ -1,0 +1,56 @@
+创建数据库
+create database zuoye;
+使用数据库
+use zuoye;
+创建用户表：
+create table user(
+userId int primary key unique not null auto_increment,
+userName varchar(20) not null,
+userPassword varchar(20) not null,
+userRegDate int not null,
+userSex int not null,
+userImage blob not null
+);
+创建帖子表：
+create table topic(
+tId int primary key unique not null,
+uId int not null auto_increment,
+tReplyCount int not null,
+tContents text not null,
+uName varchar(20) not null,
+tTime datetime not null,
+tLastClickT datetime not null,
+themeCount int not null
+);
+创建回复表：
+create table  reply(
+rId int primary key unique not null auto_increment,
+tId int not null auto_increment,
+uId int not null,
+rContents text not null,
+rTime datetime not null
+);
+创建板块表：
+create table boardList(
+tId int primary key auto_increment,
+tName varchar(20) not null,
+parentId int not null
+);
+板块表内插入内容：
+insert into boardList(tName,parentId) values('.NET技术',0);
+insert into boardList(tName,parentId) values('Java技术',0);
+insert into boardList(tName,parentId) values('数据库技术',0);
+insert into boardList(tName,parentId) values('PHP技术',0);
+insert into boardList(tName,parentId) values('娱乐',0);
+insert into boardList(tName,parentId) values('c#语言',1);
+insert into boardList(tName,parentId) values('WinForms',1);
+insert into boardList(tName,parentId) values('ADDNET',1);
+insert into boardList(tName,parentId) values('Java基础',2);
+insert into boardList(tName,parentId) values('JSP技术',2);
+insert into boardList(tName,parentId) values('Servlet技术',2);
+insert into boardList(tName,parentId) values('Eclipse应用',2);
+insert into boardList(tName,parentId) values('SQLServer基础',3);
+insert into boardList(tName,parentId) values('SQLServer高级',3);
+insert into boardList(tName,parentId) values('PHP编程',4);
+insert into boardList(tName,parentId) values('PHP案例',4);
+insert into boardList(tName,parentId) values('灌水乐园',5);
